@@ -136,10 +136,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  let newWord = str.split('');
-   neWord.reduce((newString, letter) => {
-  return letter + newString;
-}, '')
+return str.split('').reduce((r, c)=> c + r, '' );
 };
 
 /* ------------------------------------------------------------------------------------------------
