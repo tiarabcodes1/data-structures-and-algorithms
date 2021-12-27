@@ -27,8 +27,8 @@ Write a function named addValues that, given an array of numbers as input, uses 
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
-  return arr.reduce((arr, crr) => {
-    return arr = arr + crr;
+  return arr.reduce((a, b) => {
+    return a = a + b;
   },0);
 };
 
@@ -59,8 +59,8 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  return arr.reduce((elementAmount, currNum) => {
-    return elementAmount = currNum;
+  return arr.reduce((elementAmount) => {
+    return elementAmount += 1;
   },0);
 };
 
