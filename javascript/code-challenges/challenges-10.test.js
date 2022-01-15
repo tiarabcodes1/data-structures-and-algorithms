@@ -1,5 +1,7 @@
 'use strict';
 
+const { val } = require("cheerio/lib/api/attributes");
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -8,7 +10,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 ------------------------------------------------------------------------------------------------ */
 
 function returnTen(str){
-  // Solution code here...
+  return str.split('').splice(-10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,7 +28,16 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
+ let value = 0;
+
+ for(let i=0; i<matrix.length; i++){
+   for(let k=0; k<matrix[i].length; k++){
+     if(value < matrix[i][k]){
+       value = matrix[i][k];
+     }
+   }
+ }
+ return findMax;
 };
 
 /* ------------------------------------------------------------------------------------------------
