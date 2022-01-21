@@ -19,11 +19,11 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj){
-    let newArr = [];
 
-    return newArr.map(element => [itemobj.push(`<li>${element.name} ${element.age}</li>`)});
+ return Object.keys(obj).map(key => {
+   return (`<li>${key}: ${obj[key]}</li>`)
+ });
 
- 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,7 +37,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  return input.reduce((accumulator, currentValue) => {
+    const rowCount = currentValue.reduce((innerAccumulator, innerCurrentValue)=> {
+      if (innerCurrentValue === target) {
+        return innerAccumulator + 1;
+      }
+      return innerAccumulator;
+    }, 0);
+    return accumulator + rowCount;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
