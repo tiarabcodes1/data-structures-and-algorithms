@@ -59,7 +59,11 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  let totalSum = 0;
+  input.forEach(arr => {
+    arr.forEach(value => totalSum += value);
+  })
+  return totalSum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +79,9 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+return input.map(arr => {
+  return arr.filter(value => typeof value === 'number' && value % 5 === 0).map(num => Math.pow(2, num));
+});
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -141,7 +147,15 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+
+  let newArr = [];
+  data.map( character => {
+     if(character.gender === 'female' || character.gender === 'male') {
+       newArr.push(character.name );
+       }
+  })
+  
+  return newArr.join( ' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -151,7 +165,17 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+
+   let newStr = data[0];
+   
+    data.map(char => {
+    if(parseInt(char.height) < parseInt(newStr.height)) {
+      newStr = char;
+    }
+  })
+ 
+  return newStr.name;
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
