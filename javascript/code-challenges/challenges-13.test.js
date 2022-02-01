@@ -1,5 +1,7 @@
 'use strict';
 
+const { map } = require("cheerio/lib/api/traversing");
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -21,7 +23,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  return arr.map(firstStr => firstStr[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,7 +35,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  return arr.filter(str => str.includes(':)') );
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +47,7 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  return arr.map(number => number.replace(/\D/g, ""));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,7 +59,16 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+
+  let oddChar = '';
+
+  for(let i = 0; i < str.length; i++){
+    if(i % 2 !== 0){
+      oddChar = oddChar + str.substring(i, i+1);
+    }
+  }
+
+  return oddChar;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,7 +78,9 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let boolean = arr.filter(str => str.includes(':)') );
+
+  return boolean.length === arr.length ? true :  false;
 };
 
 /* ------------------------------------------------------------------------------------------------
