@@ -107,19 +107,18 @@ let starWarsData = [{
 }];
 
 let biggerThanLuke = (arr) => {
-  let bigger = '';
+  //First find Luke. Identify everyone's mass and then compare to Luke's
+  const luke = arr.find(char => char.name === 'Luke Skywalker' );
 
-  for(let i = 1; i < arr.length; i++){
-    if(parseInt(arr[0].mass) < parseInt(arr[i].mass)){
-      if(bigger === ''){
-        bigger = arr[i].name;
-      } else {
-        //reassign the variable to include dash
-        bigger = bigger + ' - ' + arr[i].name;
-      }
+  return arr.filter(char => parseInt(char.mass) > parseInt(luke.mass)).reduce((str, char, idx, arr) => {
+    let delimiter = '';
+    //this looks for the end of the array and stops, edge case
+    if (idx === arr.length -1) {
+      delimiter = ' - ';
     }
-  }
-  return bigger;
+    str += delimiter + char.name;
+    return str;
+  }, '');
 };
 
 
@@ -181,7 +180,25 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  const helpCheck = (row1, col1, row2, col2, row3, col3) => {
+    //takes in diff rows and cols and returns based on what we return
+    return board[row1][col1] !== '' && 
+    board[row1][col1] === board[row2][col2] &&
+    board[row2][col2] === board[row3][col3];
+  };
+
+    //checking all possible wins by arrays (rows) 
+  // place desired indexes in as arguments
+  if (helpCheck(0, 0, 0, 1, 0, 2)) return true; //check top row
+  if (helpCheck(1, 0, 1, 1, 1, 2)) return true; // check middle row
+  if (helpCheck(2, 0, 2, 1, 2, 2)) return true;  //check bottom row
+  if (helpCheck(0, 0, 1, 0, 2, 0)) return true;  //left col
+  if (helpCheck(0, 1, 1, 1, 2, 1)) return true;  //center col
+  if (helpCheck(0, 2, 1, 2, 2, 2)) return true;  //right col
+  if (helpCheck(0, 0, 1, 1, 2, 2)) return true;  //top left diagonal
+  if (helpCheck(0, 2, 1, 1, 2, 0)) return true;  //top right diagonal
+  //no wins were found
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
