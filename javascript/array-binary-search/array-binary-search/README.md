@@ -4,7 +4,7 @@ This challenge consists of a function that takes in 2 parameters: a sorted array
 
 ## Whiteboard 
 
-![Screen Shot 2022-03-27 at 12 32 10 AM](https://user-images.githubusercontent.com/90294860/160266744-50ae1ddc-ec0f-498c-aefe-7e74a2d10518.png)
+![array-binary-search](https://user-images.githubusercontent.com/90294860/160266744-50ae1ddc-ec0f-498c-aefe-7e74a2d10518.png)
 
 ## Approach and efficiency
 
