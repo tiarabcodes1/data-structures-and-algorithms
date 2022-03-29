@@ -24,26 +24,33 @@ class LinkedList {
   }
 
   insert(value){
-    let newNode = new Node(value);
-
-    newNode.next = this.head;
-    this.head = newNode;
+    try{
+      let newNode = new Node(value);
+      if(!this.head){
+        this.head = newNode;
+      } else {
+        newNode.next = this.head;
+        this.head = newNode;
+      }
+    } catch (err){
+      console.error(err);
+    }
   }
 
   append(value){
-    let newNode = new Node(value);
     let currNode = this.head;
 
     while(currNode.next){
       currNode = currNode.next;
     }
-    currNode.next = newNode;
+    currNode.next = new Node(value);
+    currNode.next.next = null;
   }
 
 
   insertBefore(insertBefore, value){
     let currNode = this.head;
-    while(currNode.next.value !== insertBefore){
+    while(currNode.next.val !== insertBefore){
       currNode = currNode.next;
     }
     let temp = currNode.next;
@@ -51,16 +58,15 @@ class LinkedList {
     currNode.next.next = temp;
   }
 
-  insertAfter(value, newVal){
-    let newNode = new Node(newVal);
+  insertAfter(insertAfter, value){
     let currNode = this.head;
 
-    while(currNode.value !== value){
+    while(currNode.val !== insertAfter){
       currNode = currNode.next;
     }
-
-    newNode.next = currNode.next;
-    currNode.next = newNode;
+    let temp = currNode.next;
+    currNode.next = new Node(value);
+    currNode.next.next = temp;
   }
 }
 

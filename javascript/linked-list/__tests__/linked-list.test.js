@@ -48,7 +48,7 @@ describe('Linked List', () => {
     initializeList.head.next = new Node('B');
     initializeList.insertAfter('B', 'C');
 
-    expect(initializeList.head.next.val).toEqual('C');
+    expect(initializeList.head.next.next.val).toEqual('C');
   });
 
   it('can add more than one node', () => {
@@ -58,7 +58,7 @@ describe('Linked List', () => {
     initializeList.insert('A');
     initializeList.insert('C');
 
-    expect(initializeList.next.next.value).toEqual('C');
+    expect(initializeList.next.next.val).toEqual('C');
   });
 
 });
