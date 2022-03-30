@@ -83,6 +83,9 @@ class LinkedList {
 
     if(k > this.count || k < 0) {
       return null;
+    }// checks the index
+    if( k === 1){
+      return this.head.value;
     }
     while(kPlacesVal){
       currNode = currNode.next;
