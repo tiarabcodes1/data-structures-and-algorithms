@@ -57,7 +57,8 @@ describe('Linked List', () => {
 
     initializeList.insert('A');
     initializeList.insert('C');
-    expect(initializeList.next.next.value).toEqual('C');
+    expect(initializeList.includes('A')).toBeTruthy;
+    expect(initializeList.includes('C')).toBeTruthy;
   });
 
   it('Test that k is > linked-list.length', () => {
