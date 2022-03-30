@@ -9,6 +9,7 @@ class Node {
 class LinkedList {
   constructor(){
     this.head = null;
+    this.add = 0;
   }
 
   includes(value){
@@ -29,6 +30,7 @@ class LinkedList {
       if(!this.head){
         this.head = newNode;
       } else {
+        this.count++;
         newNode.next = this.head;
         this.head = newNode;
       }
@@ -38,50 +40,57 @@ class LinkedList {
   }
 
   append(value){
+    let newNode = new Node(value);
+    this.count++;
     let currNode = this.head;
 
     while(currNode.next){
       currNode = currNode.next;
     }
-    currNode.next = new Node(value);
-    currNode.next.next = null;
+    currNode.next = newNode;
   }
 
 
-  insertBefore(insertBefore, value){
+  insertBefore(value, updatedValue){
+    let newNode = new Node(updatedValue);
+    this.count++;
     let currNode = this.head;
-    while(currNode.next.value !== insertBefore){
+
+    while(currNode.next.value !== value){
       currNode = currNode.next;
     }
-    let temp = currNode.next;
-    currNode.next = new Node(value);
-    currNode.next.next = temp;
+    newNode.next = currNode.next;
+    currNode.next = newNode;
   }
 
-  insertAfter(insertAfter, value){
+  insertAfter(value, updatedValue){
+    let newNode = new Node(updatedValue);
+    this.count++;
     let currNode = this.head;
 
-    while(currNode.val !== insertAfter){
+    while(currNode.value !== value){
       currNode = currNode.next;
     }
-    let temp = currNode.next;
-    currNode.next = new Node(value);
-    currNode.next.next = temp;
+    newNode.next = currNode.next;
+    currNode.next = newNode;
+  }
+
+  //Return the node’s value that is k places from the tail of the linked list.
+
+  kthFromEnd(k) {
+    let currNode = this.head;
+    let kPlacesVal = this.count -k;
+
+    if(k > this.count || k < 0) {
+      return null;
+    }
+    while(kPlacesVal){
+      currNode = currNode.next;
+      kPlacesVal--;
+    }
+    return currNode.value;
   }
 }
-
-let linList = new LinkedList();
-linList.insert('A');
-linList.insert('B');
-linList.insert('C');
-
-console.log(linList.head.value);
-console.log(linList.includes('B'));
-
-linList.append('Z');
-
-linList.insertBefore('Z', 'K');
-linList.insertAfter('C', 'T');
 
 
 module.exports = { LinkedList, Node };
