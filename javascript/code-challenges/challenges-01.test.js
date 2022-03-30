@@ -51,9 +51,9 @@ CHALLENGE 4
 
 Write a function named `greeting` that takes in a single string and returns the string in all uppercase letters, and followed by an "!".
 
-Then, write a function named `speaker` that takes in an array of strings and a callback function. 
+Then, write a function named `speaker` that takes in an array of strings and a callback function.
 
-Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array. 
+Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array.
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
@@ -88,7 +88,6 @@ const addValues = (arr, value) => {
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  
   for (let i = 0; i < times; i++) {
     callback(arr, num);
   }
@@ -139,27 +138,7 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  let newArray = [];
-  
-  arr.forEach(number => {
-    let newNumber = +number;
-    let placeHolder = '';
-    if (newNumber%3 === 0 || newNumber%5 === 0) {
-      if(newNumber%3 === 0){
-        placeHolder = 'Fizz'
-      }
-      if(newNumber%5 === 0){
-        placeHolder = 'Buzz'
-      }
-      if(newNumber%3 === 0 && newNumber%5 === 0){
-        placeHolder = 'Fizz Buzz'
-      }
-    }else{
-      placeHolder = number;
-    }
-    newArray.push(placeHolder);
-  });
-  return newArray;
+  // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -213,7 +192,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-describe('Testing challenge 7', () => {
+xdescribe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
