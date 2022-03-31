@@ -4,6 +4,8 @@
 const { LinkedList, Node } = require('../linked.list.class.js');
 
 describe('Linked List', () => {
+  //GLOBAL LIST TESTS FUNCTIONALITY
+
   it('creates linked list', () => {
     let initializeList = new LinkedList();
     expect(initializeList).toBeTruthy();
@@ -30,7 +32,7 @@ describe('Linked List', () => {
     initializeList.head.next = new Node('B');
     initializeList.append('C');
 
-    expect(initializeList.head.next.next.val).toEqual('C');
+    expect(initializeList.head.next.next.value).toEqual('C');
   });
 
   it('testing insert before function', () => {
@@ -52,18 +54,24 @@ describe('Linked List', () => {
   });
 
   it('can add more than one node', () => {
+
     let initializeList = new LinkedList();
+
     initializeList.head = new Node('B');
 
     initializeList.insert('A');
     initializeList.insert('C');
+    console.log(initializeList.length);
     expect(initializeList.includes('A')).toBeTruthy;
     expect(initializeList.includes('C')).toBeTruthy;
   });
 
   it('Test that k is > linked-list.length', () => {
-    let kthGreater = new LinkedList().kthFromEnd(100);
+
+    let kthGreater = new LinkedList().kthFromEnd(2);
 
     expect(kthGreater).toEqual(null);
   });
+
+  //TO DO: zipped list test
 });

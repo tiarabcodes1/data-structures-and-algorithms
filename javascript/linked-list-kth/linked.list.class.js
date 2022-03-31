@@ -30,6 +30,7 @@ class LinkedList {
       if(!this.head){
         this.head = newNode;
       } else {
+        //number of times console.count() is called
         this.count++;
         newNode.next = this.head;
         this.head = newNode;
@@ -75,25 +76,60 @@ class LinkedList {
     currNode.next = newNode;
   }
 
+  toString() {
+    let currNode = this.head;
+    let results = '';
+    while (currNode) {
+      results += `${currNode.value} ->`;
+      currNode = currNode.next;
+    }
+    return `${results}null`;
+  }
   //Return the node’s value that is k places from the tail of the linked list.
 
   kthFromEnd(k) {
     let currNode = this.head;
-    let kPlacesVal = this.count -k;
-
-    if(k > this.count || k < 0) {
-      return null;
-    }// checks the index
-    if( k === 1){
+    let position = this.count -k;
+    if(k < this.count || k <0) {
+      return this.next;
+    }
+    if (k === 1) {
       return this.head.value;
     }
-    while(kPlacesVal){
+    while(position) {
       currNode = currNode.next;
-      kPlacesVal--;
+      position--;
     }
-    return currNode.value;
+    return null;
+  }
+
+
+  //Zip the two linked lists together into one so that the nodes alternate
+  //between the two lists and return a reference to the the zipped list.
+
+  zipLists(list1, list2) {
+
+    if(list1 === null)
+      return list2;
+    if(list2 === null)
+      return list1;
+
+    if (list1.count < list2.count){
+      list1.next = this.zipLists(list1.next, list2);
+      return list1;
+    } else {
+      list2.next = this.zipLists(list1, list2.next);
+      return list2;
+    }
+    // let firstList = list1.head;
+    // let secondList = list2.head;
+
+    // while(this.count < (list1.count + list2.count)){
+    //   this.append(firstList.value);
+    //   this.append(secondList.value);
+    //   firstList = firstList.next;
+    //   secondList = secondList.next;
+    // }
   }
 }
-
-
 module.exports = { LinkedList, Node };
