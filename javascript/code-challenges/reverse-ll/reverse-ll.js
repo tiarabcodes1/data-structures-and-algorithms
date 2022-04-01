@@ -1,7 +1,7 @@
-'use strict';
+// 'use strict';
 
-// Require the linked list implementation
-// const LinkedList  = require('../../linked-list');
+// //Require the linked list implementation
+// const LinkedList  = require('../../linked-list-implementations');
 
 
 // /*
