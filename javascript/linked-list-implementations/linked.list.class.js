@@ -9,7 +9,7 @@ class Node {
 class LinkedList {
   constructor(){
     this.head = null;
-    this.add = 0;
+    this.count = 0;
   }
 
   includes(value){
@@ -89,9 +89,13 @@ class LinkedList {
 
   kthFromEnd(k) {
     let currNode = this.head;
+
     let position = this.count -k;
-    if(k < this.count || k <0) {
-      return this.next;
+    if(k === this.count) {
+      return null;
+    }
+    if(k < 0 || k > this.count) {
+      return this.head;
     }
     if (k === 1) {
       return this.head.value;
@@ -100,36 +104,42 @@ class LinkedList {
       currNode = currNode.next;
       position--;
     }
-    return null;
+    return currNode;
   }
 
 
   //Zip the two linked lists together into one so that the nodes alternate
   //between the two lists and return a reference to the the zipped list.
 
-  zipLists(list1, list2) {
+  //   zipLists(list1, list2) {
 
-    if(list1 === null)
-      return list2;
-    if(list2 === null)
-      return list1;
+  //     if(list1 === null)
+  //       return list2;
+  //     if(list2 === null)
+  //       return list1;
 
-    if (list1.count < list2.count){
-      list1.next = this.zipLists(list1.next, list2);
-      return list1;
-    } else {
-      list2.next = this.zipLists(list1, list2.next);
-      return list2;
-    }
-    // let firstList = list1.head;
-    // let secondList = list2.head;
-
-    // while(this.count < (list1.count + list2.count)){
-    //   this.append(firstList.value);
-    //   this.append(secondList.value);
-    //   firstList = firstList.next;
-    //   secondList = secondList.next;
-    // }
-  }
+  //     if (list1.count < list2.count){
+  //       list1.next = this.zipLists(list1.next, list2);
+  //       return list1;
+  //     } else {
+  //       list2.next = this.zipLists(list1, list2.next);
+  //       return list2;
+  //     }
+  //   }
+  // }
 }
+
+let ll = new LinkedList;
+ll.head = new Node(1);
+ll.head.next = new Node(2);
+ll.head.next.next = new Node(3);
+ll.head.next.next.next= new Node(4);
+
+console.log(ll.toString());
+
+
+
+
+
+
 module.exports = { LinkedList, Node };

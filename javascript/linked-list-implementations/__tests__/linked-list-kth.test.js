@@ -7,6 +7,7 @@ describe('Linked List', () => {
   //GLOBAL LIST TESTS FUNCTIONALITY
 
   it('creates linked list', () => {
+    //Empty object = truthy
     let initializeList = new LinkedList();
     expect(initializeList).toBeTruthy();
   });
@@ -22,8 +23,10 @@ describe('Linked List', () => {
     let initializeList = new LinkedList();
     initializeList.head = new Node('B');
     initializeList.head.next = new Node('A');
+    initializeList.head.next.next = new Node('C');
 
-    expect(initializeList.head.value).toEqual('B');
+    console.log(initializeList);
+    expect(initializeList.head.next.next.value).toEqual('C');
   });
 
   it('testing append function', () => {
@@ -71,6 +74,46 @@ describe('Linked List', () => {
     let kthGreater = new LinkedList().kthFromEnd(2);
 
     expect(kthGreater).toEqual(null);
+  });
+
+
+  it('Where k and the length of the list are the same', () => {
+
+
+    let ll = new LinkedList();
+    ll.head = new Node(1);
+    ll.append(new Node(2));
+    ll.append(new Node(3));
+    ll.count++;
+    // 3 positions from the initial node is null on the ll
+    expect(ll.kthFromEnd(3)).toEqual(null);
+  });
+
+  it('Where k is not a positive integer', () => {
+    let ll = new LinkedList();
+    ll.head = new Node(30);
+    let negInteger = ll.kthFromEnd(-1);
+    //if(k < this.count || k < 0) works correctly
+    expect(negInteger.value).toEqual(ll.head.value);
+  });
+
+  it('Where the linked list is of a size 1', () => {
+    let ll = new LinkedList();
+    ll.head = new Node(1);
+
+    expect(ll.kthFromEnd(1).value).toEqual(ll.head.value);
+  });
+
+  it('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
+    let ll = new LinkedList();
+    ll.head = new Node(1);
+    ll.append(new Node(2));
+    ll.append(new Node(3));
+    ll.append(new Node(4));
+    ll.append(new Node(5));
+    let kInMiddle = ll.kthFromEnd(2);
+
+    expect(kInMiddle.value.value).toEqual(3);
   });
 
   //TO DO: zipped list test
