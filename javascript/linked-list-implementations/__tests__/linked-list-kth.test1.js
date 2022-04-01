@@ -1,7 +1,7 @@
 'use strict';
 
 // Require our linked list implementation
-const { LinkedList, Node } = require('../linked.list.class.js');
+const { LinkedList, Node } = require('../linked.list.class1.js');
 
 describe('Linked List', () => {
   //GLOBAL LIST TESTS FUNCTIONALITY
