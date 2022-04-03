@@ -1,7 +1,7 @@
 const { it } = require('eslint/lib/rule-tester/rule-tester');
 const { Stack, Node} = require('../stack-queue-class.js');
 
-describe('stack & queue tests', () => {
+describe('stack & queue testss', () => {
 
   //tests stacks
   it('Can successfully push onto a stack', () => {
