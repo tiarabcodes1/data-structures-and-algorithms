@@ -3,3 +3,4 @@
 2. [Array-Insert-Shift README](./array-insert-shift/README.md)
 3. [Array-Binary-Search README](./array-binary-search/README.md)
 4. [Linked-List-implementations](./linked-list-implementations/linked-list-implementations.md)
+5. [Stack-and-Queue](./stack-and-queue/README.md)
