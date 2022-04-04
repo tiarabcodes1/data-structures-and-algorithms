@@ -1,7 +1,8 @@
-const { it } = require('eslint/lib/rule-tester/rule-tester');
-const { Stack, Node} = require('../stack-queue-class.js');
+const { compareDocumentPosition } = require('domutils');
+const { it, describe } = require('eslint/lib/rule-tester/rule-tester');
+const { Stack, Node, Queue} = require('../stack-queue-class.js');
 
-describe('stack & queue testss', () => {
+describe('stack tests', () => {
 
   //tests stacks
   it('Can successfully push onto a stack', () => {
@@ -61,15 +62,59 @@ describe('stack & queue testss', () => {
   it('Calling pop or peek on empty stack raises exception', () => {
     let initStack = new Stack();
     // initStack.top = new Node(2);
-    console.log('pop', initStack);
     expect(initStack.peek()).toEqual(initStack.isEmpty());
     expect(initStack.pop()).toEqual(initStack.isEmpty());
 
   });
 
 
+});
 
-  // tests queues
+// tests queues
+
+describe('queue tests', () => {
+  it('Can successfully enqueue into a queue', () => {
+    let initQueue = new Queue();
+    initQueue.enqueue(2);
+    initQueue.enqueue(60);
+    initQueue.enqueue(100);
+
+    expect(initQueue.front.value).toEqual(2);
+    expect(initQueue.front.next.value).toEqual(60);
+    expect(initQueue.back.value).toEqual(100);
+    expect(initQueue.back.next).toEqual(null);
+  });
+
+  it('Can successfully dequeue', () => {
+    let initQueue = new Queue();
+    initQueue.enqueue(2);
+    initQueue.enqueue(60);
+    initQueue.enqueue(100);
+
+    expect(initQueue.dequeue()).toEqual(2);
+    expect(initQueue.dequeue()).toEqual(60);
+    expect(initQueue.dequeue()).toBeTruthy;
+  });
+
+  it('Can successfully peek into a queue, seeing the expected value', () => {
+    let initQueue = new Queue();
+    initQueue.enqueue(2);
+    initQueue.enqueue(60);
+    initQueue.enqueue(100);
+
+    expect(initQueue.peek()).toEqual(2);
+  });
+
+  it('Can successfully instantiate an empty queue', () => {
+    let initQueue = new Queue();
+    expect(initQueue.front).toEqual(null);
+  });
+
+  it('Calling dequeue or peek on empty queue raises exception', () => {
+    let initQueue = new Queue();
+    expect(initQueue.peek()).toEqual(undefined);
+    expect(initQueue.dequeue()).toEqual(undefined);
+  });
 
 
 });

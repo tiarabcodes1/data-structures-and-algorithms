@@ -76,30 +76,6 @@ class Stack {
   }
 }
 
-// class Queue {
-//   constructor() {
-//     this.front = null;
-//     this.back = null;
-//   }
-
-//   dequeue() {
-
-//   }
-
-//   enqueue() {
-
-//   }
-
-//   peek() {
-
-//   }
-
-//   isEmpty() {
-
-//   }
-// }
-
-
 let initStack = new Stack();
 initStack.top = new Node(1);
 initStack.push(100);
@@ -108,4 +84,81 @@ console.log('testStack', initStack);
 
 
 
-module.exports = { Stack, Node };
+class Queue {
+  constructor() {
+    this.front = null;
+    this.back = null;
+  }
+
+
+  //Returns: the value from node from the front of the queue
+  //Removes the node from the front of the queue
+  dequeue() {
+    try{
+    //front is stored in temp var
+      let temp = this.front;
+      //if temp.next is not true then this.back is null
+      this.front = this.front.next;
+      if(!temp.next){
+        this.back = null;
+        return this.isEmpty();
+      }
+      //removes the pointer we put pointer on
+      temp.next = null;
+      //returns the temps value
+      return temp.value;
+    } catch(err) {
+      console.error(err);
+    }
+  }
+
+  //adds a new node with that value to the back of the queue with an O(1) Time performance.
+  enqueue(value) {
+    let addedVal = new Node(value);
+    //if empty is not true add value to back.next
+    if(!this.isEmpty()){
+      this.back.next = addedVal;
+    }else{
+      this.front = addedVal;
+    }
+    this.back = addedVal;
+    // let node = new Node(value);
+    // this.back.next = node;
+    // this.back = node;
+
+  }
+
+  peek() {
+    try {
+      return this.front.value;
+    } catch(err) {
+      console.error('Your Queue is broken', err);
+    }
+
+  }
+
+  isEmpty() { //Returns: Boolean indicating whether or not the queue is empty
+    try{
+      //if the front node has a value in it then the conditional statement is false
+      if(!this.front){
+        return true;
+      } else {
+        return false;
+      }
+    } catch(err) {
+      console.error('Your Queue is broken', err);
+    }
+  }
+}
+
+
+
+let initQueue = new Queue();
+initQueue.enqueue(2);
+initQueue.enqueue(3);
+initQueue.enqueue(4);
+
+
+// console.log(initQueue);
+
+module.exports={ Stack, Node, Queue };
