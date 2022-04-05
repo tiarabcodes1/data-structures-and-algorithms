@@ -1,5 +1,3 @@
-const { compareDocumentPosition } = require('domutils');
-const { it, describe } = require('eslint/lib/rule-tester/rule-tester');
 const { Stack, Node, Queue} = require('../stack-queue-class.js');
 
 describe('stack tests', () => {

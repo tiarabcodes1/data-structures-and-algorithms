@@ -80,7 +80,7 @@ let initStack = new Stack();
 initStack.top = new Node(1);
 initStack.push(100);
 
-console.log('testStack', initStack);
+// console.log('testStack', initStack);
 
 
 
@@ -160,5 +160,9 @@ initQueue.enqueue(4);
 
 
 // console.log(initQueue);
+
+
+
+
 
 module.exports={ Stack, Node, Queue };
