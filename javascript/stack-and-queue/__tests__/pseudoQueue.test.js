@@ -1,5 +1,5 @@
 'use strict';
-const { PseudoQueue } = require('../pseudoQueue.js');
+const { PseudoQueue } = require('../classes/pseudo-queue-class.js');
 // const { , Node, Queue} = require('../stack-queue-class.js');
 
 describe('stack pseudoQueue test', () => {
