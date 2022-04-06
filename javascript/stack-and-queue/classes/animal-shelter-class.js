@@ -19,7 +19,7 @@ class AnimalShelter {
         this.dog.enqueue(animal);
         return this.dog;
       } else {
-        return console.log(`Sorry we cannot take this ${animal.creature}`);
+        return `Sorry we cannot take this ${animal.creature}`;
       }
     }catch(err){
       console.error(err);
@@ -33,11 +33,9 @@ class AnimalShelter {
         return this.cat;
       } else if(pref.creature === 'dog') {
         this.dog.dequeue(pref);
-        return this.dog;
-      } else if(!pref.creature === 'cat'){
-        return null, console.log(`Sorry we cannot remove this ${pref.creature}`);
-      } else if(!pref.creature === 'dog'){
-        return null, console.log(`Sorry we cannot remove this ${pref.creature}`);
+        return pref.creature;
+      } else {
+        return `Sorry we cannot remove this ${pref.creature}`;
       }
     } catch(err) {
       console.error(err);
@@ -47,12 +45,13 @@ class AnimalShelter {
 }
 
 let animalShelter = new AnimalShelter();
+let Isnull = null;
 animalShelter.enqueue({creature: 'dog'});
 animalShelter.enqueue({creature: 'dog'});
 animalShelter.dequeue({creature: 'pig'});
 animalShelter.enqueue({creature: 'cat'});
 animalShelter.enqueue({creature: 'cat'});
-animalShelter.dequeue({creature: 'cat'});
+animalShelter.dequeue({ Isnull });
 console.log(animalShelter);
 
 
