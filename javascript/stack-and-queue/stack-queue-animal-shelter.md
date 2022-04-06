@@ -1,6 +1,6 @@
 # Animal Shelter Queues
 
-Implementations upon stacks and queues.
+Implementations upon previously created Queue class.
 
 # Challenge
 
