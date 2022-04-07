@@ -1,4 +1,4 @@
-const { Stack, Node, Queue} = require('../stack-queue-class.js');
+const { Stack, Node, Queue} = require('../classes/stack-queue-class');
 
 describe('stack tests', () => {
 
@@ -62,6 +62,13 @@ describe('stack tests', () => {
     // initStack.top = new Node(2);
     expect(initStack.peek()).toEqual(initStack.isEmpty());
     expect(initStack.pop()).toEqual(initStack.isEmpty());
+
+  });
+  it('Can validate true bracket balance', () => {
+    let initStack = new Stack();
+    initStack.validateBrackets('[]');
+    expect(initStack.validateBrackets('[()()]')).toEqual(true);
+    console.log('test', initStack);
 
   });
 
