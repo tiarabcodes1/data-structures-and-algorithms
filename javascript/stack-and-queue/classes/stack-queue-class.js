@@ -44,6 +44,31 @@ class Stack {
     }
 
   }
+  //representing whether or not the brackets in the string are balanced
+  validateBrackets(string){
+    let initStack = new Stack();
+    let newArr = string.split();
+    //look through arr push opening brackets into stack
+    for(let i = 0; i < newArr.length; i++){
+      if(newArr[i] === ('(' || '[' || '{')){
+        initStack.push(newArr[i]);
+        console.log('array on push', initStack);
+      }
+      else if(newArr[i] === (')' || ']' || '}')){
+        if (initStack.isEmpty() || newArr[i] === ']' && initStack.peek() !== '[' ||
+        newArr[i] === ')' && initStack.peek() !== '(' ||
+        newArr[i] === '}' && initStack.peek() !== '{') {
+        // if(initStack.isEmpty() || initStack.top !== newArr[i]){
+          return false;
+        //
+        } else{
+          initStack.pop();
+        }
+      }
+    }
+
+    return initStack.isEmpty();
+  }
 
   //Returns: Value of the node located at the top of the stack
   peek() {
@@ -74,11 +99,26 @@ class Stack {
       console.error('Your stack is broken', err);
     }
   }
+
+
+
+  //     else if( initStack.isEmpty() || !this.top === newArr[i] ){
+  //       return false;
+  //     } else {
+  //       initStack.pop();
+  //     }
+  //   }
+  //   if(true && initStack.isEmpty()){
+  //     return true;
+  //   }
+  // }
+
 }
 
-let initStack = new Stack();
-initStack.top = new Node(1);
-initStack.push(100);
+
+// let initStack = new Stack();
+// initStack.top = new Node(1);
+// initStack.push(100);
 
 // console.log('testStack', initStack);
 
@@ -153,16 +193,23 @@ class Queue {
 
 
 
-let initQueue = new Queue();
-initQueue.enqueue(2);
-initQueue.enqueue(3);
-initQueue.enqueue(4);
+// let initQueue = new Queue();
+// initQueue.enqueue(2);
+// initQueue.enqueue(3);
+// initQueue.enqueue(4);
 
 
 // console.log(initQueue);
 
 
 
+
+// let initStack = new Stack();
+// initStack.push('}'),
+// initStack.push('{');
+// initStack.push('(');
+// initStack.validateBrackets('(](');
+// console.log('test', initStack);
 
 
 module.exports={ Stack, Node, Queue };
