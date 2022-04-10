@@ -114,11 +114,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  let newArray = []
+  let newArray = [];
 
-  availableItems.forEach(item => {if (item.available) {newArray.push(item.name);
-  }
-});
+  availableItems.forEach(item => {
+    if (item.available) {
+      newArray.push(item.name);
+    }
+  });
 
   return newArray;
 };
@@ -137,7 +139,7 @@ Iterate over the array using forEach to determine the output based on several ru
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
-const fizzbuzz = (arr) => {
+const fizzbuzz = () => {
   // Solution code here...
 };
 
