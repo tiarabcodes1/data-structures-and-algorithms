@@ -5,3 +5,4 @@
 4. [Linked-List-implementations](./linked-list-implementations/linked-list-implementations.md)
 5. [Stack-and-Queue](./stack-and-queue/README.md)
 6. [Stack-Queue-Animal-Shelter](./stack-and-queue//stack-queue-animal-shelter.md)
+7. [Trees](./trees/README.md)
