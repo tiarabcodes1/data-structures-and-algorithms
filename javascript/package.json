@@ -2,7 +2,7 @@
   "name": "data-structures-and-algorithms",
   "version": "1.0.0",
   "description": "Data Structures, Algorithms, Code Challenges",
-  "main": "index.js",
+  "main": "index.js treeClasses.js",
   "scripts": {
     "get-challenge": "`which bash` ./code-challenges/bin/get-challenge.sh",
     "test": "jest --verbose --coverage --watchAll",
