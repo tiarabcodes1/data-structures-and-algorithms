@@ -62,4 +62,10 @@ describe('Tree tests, Binary Tree/Binary Search Tree', () => {
     expect(bsTree.contains(900000)).toEqual(false);
 
   });
+
+  it('test, findMax method returns the max value', () => {
+
+    expect(bTree.findMax()).toEqual(56);
+
+  });
 });
