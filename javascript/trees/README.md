@@ -18,6 +18,7 @@ Thinking about how I can make sure that a method would take less space and memor
 | preOrder()  | N/A      | `current node` → `left Subtree` → `right  Subtree`                                                           |
 | inOrder()   | N/A      | `left subtree` → `current` → `right subtree`                                                                 |
 | postOrder() | N/A      | `left subtree` → `right subtree` → `current` </br><br>returns an array of the values, ordered appropriately. |
+| findMax() | N/A  | Finds the maximum value stored a numeric tree.|
 
 | Method     | Argument | Binary Search Tree                                                                 |
 |------------|----------|------------------------------------------------------------------------------------|
