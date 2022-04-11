@@ -24,3 +24,12 @@ Thinking about how I can make sure that a method would take less space and memor
 |------------|----------|------------------------------------------------------------------------------------|
 | add()      | value    |Adds a new node with that value in the correct location in the binary search tree.                                 |
 | contains() | value      | Boolean indicating whether or not the value is in the tree at least once. |
+
+
+# Whiteboard 
+
+- findMax()
+<img width="1411" alt="findMaxUML" src="https://user-images.githubusercontent.com/90294860/162849877-98d6f5fb-d663-441a-a6b8-9904c647eec5.png">
+
+
+
