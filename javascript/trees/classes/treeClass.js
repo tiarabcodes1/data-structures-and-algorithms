@@ -99,6 +99,32 @@ class BinaryTree {
 
     return results;
   }
+
+  findMax() {
+    let maxValue;
+
+    let traverse = (node) => {
+
+      if (node === null) {
+        return Number.MIN_VALUE;
+      }
+
+      maxValue = node.value;
+      let leftVal = traverse(node.left);
+      let rightVal = traverse(node.right);
+
+      if (leftVal > maxValue){
+        maxValue = leftVal;
+      }
+      if(rightVal > maxValue){
+        maxValue = rightVal;
+      }
+
+    };
+    traverse(this.root);
+    return maxValue;
+  }
+
 }
 
 
@@ -125,7 +151,7 @@ class BinarySearchTree extends BinaryTree {
           } else if (node.right !== null) {
             return searchTree(node.right);
           }
-        } else if (typeof value === 'string'){ // value is equal to another value
+        } else if (typeof value === 'string') { // value is equal to another value
           throw new Error('Sorry, strings can not be added');
         }
       };
@@ -155,27 +181,24 @@ class BinarySearchTree extends BinaryTree {
       console.error(err);
     }
   }
+
+
+
 }
 
 
 
 
-let tree = new BinarySearchTree();
+let tree = new BinaryTree();
 tree.root = new Node(3);
-tree.add(100000);
-tree.add(2000000);
-tree.add(100);
-tree.add(2);
-tree.add(1);
-tree.add(77);
-tree.add(88);
-tree.add(209);
+tree.root.left = new Node(20000);
+tree.root.right = new Node(2000000);
 // tree.root.left.left = new Node(1);
 // tree.root.left.right = new Node(7);
 // tree.root.right.left = new Node(30);
 // tree.root.right.right = new Node(56);
 // tree.root.left.right.right = new Node(9);
-// console.log(tree.contains(3));
+console.log(tree.findMax());
 
 module.exports = {
   BinaryTree,
