@@ -198,7 +198,7 @@ tree.root.right = new Node(2000000);
 // tree.root.right.left = new Node(30);
 // tree.root.right.right = new Node(56);
 // tree.root.left.right.right = new Node(9);
-console.log(tree.findMax());
+console.log(tree.breadthFirst());
 
 module.exports = {
   BinaryTree,

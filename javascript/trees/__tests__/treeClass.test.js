@@ -1,11 +1,3 @@
-//
-//
-//
-// Can successfully return a collection from a preorder traversal
-// Can successfully return a collection from an inorder traversal
-// Can successfully return a collection from a postorder traversal
-
-
 const { BinaryTree, Node, BinarySearchTree } = require('../classes/treeClass.js');
 
 describe('Tree tests, Binary Tree/Binary Search Tree', () => {
@@ -68,4 +60,12 @@ describe('Tree tests, Binary Tree/Binary Search Tree', () => {
     expect(bTree.findMax()).toEqual(56);
 
   });
+
+  it('test, bredthFirst to equal tree in the order of node encounters', () => {
+
+    expect(bTree.breadthFirst()).toEqual([1, 1, 30, 7, 56, 9]);
+    console.log(bTree);
+
+  });
+
 });
