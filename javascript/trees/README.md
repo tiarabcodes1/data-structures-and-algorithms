@@ -19,6 +19,7 @@ Thinking about how I can make sure that a method would take less space and memor
 | inOrder()   | N/A      | `left subtree` → `current` → `right subtree`                                                                 |
 | postOrder() | N/A      | `left subtree` → `right subtree` → `current` </br><br>returns an array of the values, ordered appropriately. |
 | findMax() | N/A  | Finds the maximum value stored a numeric tree.|
+| breadthFirst | N/A | Returns a list of all values in the tree, in the order they were encountered |
 
 | Method     | Argument | Binary Search Tree                                                                 |
 |------------|----------|------------------------------------------------------------------------------------|
@@ -30,6 +31,9 @@ Thinking about how I can make sure that a method would take less space and memor
 
 - findMax()
 <img width="1411" alt="findMaxUML" src="https://user-images.githubusercontent.com/90294860/162849877-98d6f5fb-d663-441a-a6b8-9904c647eec5.png">
+
+- breadthFirst()
+![BREADTH-UML](https://user-images.githubusercontent.com/90294860/163061641-3873dfe3-9ad9-49ac-9de6-bc17e433fb2b.png)
 
 
 
