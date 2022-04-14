@@ -23,8 +23,14 @@ Thinking about how I can make sure that a method would take less space and memor
 
 | Method     | Argument | Binary Search Tree                                                                 |
 |------------|----------|------------------------------------------------------------------------------------|
-| add()      | value    |Adds a new node with that value in the correct location in the binary search tree.                                 |
+| add()      | value    |Adds a new node with that value in the correct location in the binary search tree.  |
 | contains() | value      | Boolean indicating whether or not the value is in the tree at least once. |
+
+
+| Function     | Argument | Kary Tree                                                                |
+|------------|----------|------------------------------------------------------------------------------------|
+| fizzBuzz()      | value    |Sets the values of each of the new integer node depending on the corresponding node value in the source tree to either fizz, buzz, fizzbuzz, or a string value.  |
+
 
 
 # Whiteboard 
@@ -35,5 +41,12 @@ Thinking about how I can make sure that a method would take less space and memor
 - breadthFirst()
 ![BREADTH-UML](https://user-images.githubusercontent.com/90294860/163061641-3873dfe3-9ad9-49ac-9de6-bc17e433fb2b.png)
 
+- fizzBuzz 
+![fizzBuzz-UML](https://user-images.githubusercontent.com/90294860/163291107-a1ed574c-4f9a-4959-ab86-f9b1c55e79e6.png)
+
+
+# Contributions
+
+Chattray Chea
 
 
