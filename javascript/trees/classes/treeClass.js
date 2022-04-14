@@ -1,23 +1,18 @@
 'use strict';
 
 class Node {
-  constructor(value, left = null, right = null) {
+  constructor(value, left = null, right = null, k = 0) {
     //value stored in the node
     this.value = value;
     //left child node
     this.left = left;
     //right child node
     this.right = right;
+    this.children = new Array(k);
   }
 }
 
-// class KaryNode {
-//   constructor(value, k) {
-//     this.value = value;
-//     this.k = k;
-//     this.children = [];
-//   }
-// }
+
 
 class BinaryTree {
   constructor() {
@@ -182,26 +177,67 @@ class BinarySearchTree extends BinaryTree {
     }
   }
 
-
-
 }
 
 
+class KaryTree {
+  constructor(k) {
+    this.k = k;
+    this.root = null;
+  }
+}
+function breadthFirst(node){
+  const arr = [];
+  const result = [];
+  let current = node;
+
+  arr.unshift(node);
+
+  while(arr.length){
+    current = arr.pop();
+    result.push(current.value);
+    for (let node of current.children){
+      arr.unshift(node);
+    }
+  }
+  return result;
+}
+
+function fizzBuzz(node){
+  let result = [];
+  let i;
+
+  for(i = 0; i < node.length; i++) {
+    if(node[i] % 15 === 0) result.push("FizzBuzz");
+    else if(node[i] % 3 === 0) result.push("Fizz");
+    else if (node[i] % 5 === 0) result.push("Buzz");
+    else result.push(node[i].toString());
+  }
+  return result;
+}
 
 
-let tree = new BinaryTree();
-tree.root = new Node(3);
-tree.root.left = new Node(20000);
-tree.root.right = new Node(2000000);
+let tree = new KaryTree(4);
+
+tree.root = new Node(10);
+tree.root.children.push(new Node(1), new Node(3), new Node(15), new Node(32));
+tree.root.children[0].children.push( new Node(40), new Node(30), new Node(9));
+tree.root.children[1].children.push( new Node(45), new Node(38), new Node(90));
+tree.root.children[2].children.push( new Node(12), new Node(60), new Node(41));
+tree.root.children[3].children.push( new Node(80), new Node(66), new Node(49));
 // tree.root.left.left = new Node(1);
 // tree.root.left.right = new Node(7);
 // tree.root.right.left = new Node(30);
 // tree.root.right.right = new Node(56);
 // tree.root.left.right.right = new Node(9);
-console.log(tree.breadthFirst());
+// console.log('B FIRST: ', breadthFirst(tree.root));
+console.log('FIZZ BUZZ: ', fizzBuzz(breadthFirst(tree.root)));
+// console.log('CHILDREN LOG: ', tree.root.children[3].children);
+// console.log('FULL TREE: ',tree);
 
 module.exports = {
   BinaryTree,
   Node,
   BinarySearchTree,
+  KaryTree
 };
