@@ -1,41 +1,35 @@
 'use strict';
-let sampleArr = [8,4,23,42,16,15];
+let sampleArr = [8, 4, 23, 42, 16, 15];
 
-function mergeSort(arr){
-  const n = arr.length;
+function mergeSort(arr) {
+  let n = arr.length;
 
-  if(n > 1){
-    let mid = n/2;
-    let left = arr[0.. mid];
-    let right = arr[mid.. n];
+  if (n <= 1) return arr;
+  const mid = Math.floor(n / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+  // console.log(`LEFT: ${left} RIGHT: ${right}`);
 
-    mergeSort(left);
-    mergeSort(rigt);
-    mergeSort(left, right, arr);
-  }
-
-
+  console.log('MERGED',merge(mergeSort(left), mergeSort(right)));
+  return merge(mergeSort(left), mergeSort(right));
 }
 
-function merge(left, right, arr){
-    let i = 0;
-    let j = 0;
-    let k = 0;
+function merge(left, right) {
 
-    while(i < left.length && j < right.length){
-      if(left[i] <= right.length){
-        arr[k] = left[i];
-        i = i+1
-      } else{
-        arr[k] = right[j];
-        j = j+1
-      }
-      k = k + 1;
-    }
-    if(i = left.length){
-      return [...arr] = [...right];
+  let i = 0;
+  let k = 0;
+  let mergedArr = [];
+  while (i < left.length && k < right.length) {
+    if (left[i] < right[k]) {
+      mergedArr.push(left[i++]);
     } else {
-      return [...arr] = [...left];
+      mergedArr.push(right[k++]);
     }
   }
-console.log(mergeSort(sampleArr));
+
+  return [...mergedArr, ...left.slice(i), ...right.slice(k)];
+}
+
+console.log('FUNCTION', mergeSort(sampleArr));
+
+module.exports = { mergeSort, merge };
