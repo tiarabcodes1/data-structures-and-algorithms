@@ -4,6 +4,11 @@ Through the creation of a `HashTable class` and a `LinkedList class` with accomp
 
 Below explains the usage of each method that allows you to add to a HashTable, providing your table size upon instantiation. The `hash` function allows for a key to receive a unique index that can be used when storing and searching in a HashTable.
 
+## WhiteBoard
+
+<img width="1271" alt="HASHTABLE-UML" src="https://user-images.githubusercontent.com/90294860/166173212-a75aa52e-7438-4c8f-b55b-c1e6d9e67b85.png">
+
+
 # API
 
 | Method         | Argument         | Functionality                                                                                                     |
