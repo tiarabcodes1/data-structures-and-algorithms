@@ -84,17 +84,17 @@ class HashTable {
 
 }
 
-let table = new HashTable(1024);
-console.log(table);
-console.log(table.hash('Chance'));
-table.set('Chance', 1);
-table.set('Brownie', 2);
-table.set('Bone', { treat: 'Bone' });
-console.log('table:', table);
-console.log('test contains()', table.contains('Bone'));
-console.log('test keys()', table.keys());
-// console.log('Chance: ', table.get('Chance'));
-// console.log('Brownie: ', table.get('Brownie'));
-console.log('Bone: ', table.get('Bone'));
+// let table = new HashTable(1024);
+// console.log(table);
+// console.log(table.hash('Chance'));
+// table.set('Chance', 1);
+// table.set('Brownie', 2);
+// table.set('Bone', { treat: 'Bone' });
+// console.log('table:', table);
+// console.log('test contains()', table.contains('notHere'));
+// console.log('test keys()', table.keys());
+// // console.log('Chance: ', table.get('Chance'));
+// // console.log('Brownie: ', table.get('Brownie'));
+// console.log('Bone: ', table.get('Bone'));
 
-module.exports = HashTable;
+module.exports = { HashTable } ;
