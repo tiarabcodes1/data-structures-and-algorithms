@@ -1,6 +1,5 @@
 'use strict';
 
-const { describe } = require('eslint/lib/rule-tester/rule-tester');
 const { repeatedWord } = require('../repeatedWord');
 
 describe('TESTING HASMAP FUNCTIONALITY', () => {
@@ -15,6 +14,5 @@ describe('TESTING HASMAP FUNCTIONALITY', () => {
   test('should return proper repeated word', () => {
     let brandNewParagraph = 'I do repeat repeat.';
     expect(repeatedWord(brandNewParagraph)).not.toEqual(['milk']);
-    console.log('HELLO',repeatedWord(brandNewParagraph));
   });
 });
