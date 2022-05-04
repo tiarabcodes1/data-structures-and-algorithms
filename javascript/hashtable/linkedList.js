@@ -25,6 +25,14 @@ class LinkedList {
     }
     current.next = node;
   }
+
+  traverse(callback) {
+    let current = this.head;
+    while (current !== null) {
+      callback(current.value);
+      current = current.next;
+    }
+  }
 }
 
 module.exports = LinkedList;

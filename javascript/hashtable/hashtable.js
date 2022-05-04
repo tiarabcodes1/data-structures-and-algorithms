@@ -28,7 +28,7 @@ class HashTable {
     if (this.buckets[position]) {
       let bucket = this.buckets[position];
       bucket.add(data);
-    } else if(data !== this.buckets[position]) {
+    } else if (data !== this.buckets[position]) {
       let bucket = new LinkedList();
 
       bucket.add(data);
@@ -67,18 +67,16 @@ class HashTable {
 
   keys() { //Returns: Collection of keys
     try {
-      for (let i = 0; i <= this.buckets.length; i++) {
-        // console.log(`index: ${i} | Buckets`, buckets);
-        if (this.buckets[i] !== undefined) {
-          return this.buckets[i];
-        }
-
-      }
+      let currHashTable = this.buckets.filter((bucket) => Boolean(bucket));
+      let keys = [];
+      currHashTable.forEach((chain) => {
+        chain.traverse((value) => keys.push(Object.keys(value)[0]));
+      });
+      return keys;
     } catch (e) {
       console.error(e);
       throw new Error('THIS HASHTABLE DOES NOT EXIST');
     }
-
 
   }
 
@@ -93,8 +91,8 @@ class HashTable {
 // console.log('table:', table);
 // console.log('test contains()', table.contains('notHere'));
 // console.log('test keys()', table.keys());
-// // console.log('Chance: ', table.get('Chance'));
-// // console.log('Brownie: ', table.get('Brownie'));
+// console.log('Chance: ', table.get('Chance'));
+// console.log('Brownie: ', table.get('Brownie'));
 // console.log('Bone: ', table.get('Bone'));
 
-module.exports = { HashTable } ;
+module.exports = { HashTable };
