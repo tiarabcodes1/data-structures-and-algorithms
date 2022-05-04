@@ -18,4 +18,10 @@ Below explains the usage of each method that allows you to add to a HashTable, p
 | contains()       |  key            | Returns boolean, indicating if the key exists in the table already.                           |
 |  keys()     | n/a              | Returns a collection of keys |
 | hash()       | keys        | Returns an index in the collection for that key                                                    |
+| repeatedWord()       | string        | finds the first word to occur more than once in a string key                                                    |
+
+
+## Contributions 
+[This is a link to the Map and .has() method usage in `repeatedWord()`via Mozilla.org.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has)
+
 

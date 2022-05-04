@@ -2,7 +2,7 @@
 
 const { it } = require('eslint/lib/rule-tester/rule-tester');
 // Require our hashtable implementation
-const HashTable = require('../hashtable');
+const HashTable = require('../hashtable.js');
 
 describe('Tests hashtable class/methods', () => {
   //GLOBAL LIST TESTS FUNCTIONALITY
