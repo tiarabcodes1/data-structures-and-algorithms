@@ -14,6 +14,9 @@ Below explains the usage of each method that allows you to add to a HashTable, p
 
 ![Tree-intersection-UML](./assets/Tree-intersection-UML.png)
 
+### LeftJoin Function
+
+![PLACEHOLDER]()
 
 # API
 
@@ -26,6 +29,7 @@ Below explains the usage of each method that allows you to add to a HashTable, p
 | hash()       | keys        | Returns an index in the collection for that key                                                    |
 | repeatedWord()       | string        | finds the first word to occur more than once in a string key                                                    |
 | treeIntersection()       | two binary trees       | returns a set of values found in both trees.
+| leftJoin()       | two hashmaps       | returns The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic.
 
 ## Contributions 
 [This is a link to the Map and .has() method usage in `repeatedWord()`via Mozilla.org.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has)
