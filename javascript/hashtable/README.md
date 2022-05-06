@@ -16,7 +16,7 @@ Below explains the usage of each method that allows you to add to a HashTable, p
 
 ### LeftJoin Function
 
-![PLACEHOLDER]()
+![LEFRJOIN-UML](./assets/LeftJoin-UML.png)
 
 # API
 
