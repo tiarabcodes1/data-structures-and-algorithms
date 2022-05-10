@@ -56,4 +56,27 @@ describe('TESTING GRAPH METHODS', () => {
 
     expect(graphSize).toEqual(2);
   });
+
+  test('The proper size is returned, representing the number of nodes in the graph', () => {
+    const newGraph = new Graph;
+
+    const value1 = newGraph.addVertex('value1');
+    const value2 = newGraph.addVertex('value2');
+    const value3 = newGraph.addVertex('value3');
+    const value4 = newGraph.addVertex('value4');
+
+    newGraph.addDirectedEdge(value2, value1);
+    newGraph.addDirectedEdge(value1, value2);
+    newGraph.addDirectedEdge(value1, value3);
+    newGraph.addDirectedEdge(value1, value4);
+    newGraph.addDirectedEdge(value3, value1);
+    newGraph.addDirectedEdge(value3, value4);
+    newGraph.addDirectedEdge(value4, value3);
+    newGraph.addDirectedEdge(value4, value1);
+
+    let results = newGraph.breadthFirst(value2);
+
+    expect(console.log(results)).toEqual(newGraph.vertex);
+
+  });
 });
