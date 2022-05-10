@@ -6,7 +6,7 @@ A database that uses graph structures for semantic queries with nodes, edges, an
 Create a Graph class that is represented as an adjacency list.
 
 ## Approach & Efficiency
-
+The efficiency for the Graph has an O(n) depending on its vertex's root. The space is O(n) with a created set that contains all respective nodes visited. 
 
 
 ## API
@@ -19,9 +19,4 @@ Create a Graph class that is represented as an adjacency list.
 | size() | N/A | Returns the total number of nodes in the graph |
 
 
-
-
-# Whiteboard 
-
-- GRAPH
-![PLACEHOLDER](#)
+Contributors:  Chattray Chea

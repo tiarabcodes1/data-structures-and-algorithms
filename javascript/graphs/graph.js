@@ -16,12 +16,13 @@ class Edge {
 class Graph {
   constructor() {
     this.adjacencyList = new Map();
+    this.vertices = new Set();
   }
 
   addVertex(value) {
     const vertex = new Vertex(value);
     this.adjacencyList.set(vertex, []);
-
+    this.vertices.add(vertex);
     return vertex;
   }
 
@@ -34,9 +35,16 @@ class Graph {
     return [...this.adjacencyList.get(vertex)];
   }
 
+  getNodes(){
+    //returns all nodes from set
+    this.vertices.values();
+  }
+
   breadthFirst(root, cb) {
     const queue = [root];
     const visited = new Set();
+    //places root in the Nodes
+    visited.add(root);
     let current = null;
 
     while (queue.length) {
@@ -75,6 +83,10 @@ class Graph {
 
     return visited;
   }
+
+  size() {
+    return this.vertices.size;
+  }
 }
 
 const graph = new Graph();
@@ -109,52 +121,10 @@ graph.addDirectedEdge(F, E);
  * @param {Function} cb
  * @returns Set of Vertices
  */
-function breadthFirst(root, cb) {
-  const queue = [root];
-  const visited = new Set();
-  let current = null;
 
-  while (queue.length) {
-    current = queue.pop();
-    if (cb) cb(current.value);
-
-    const neighbors = getNeighbors(current);
-    for (let edge of neighbors) {
-      if (!visited.has(edge.vertex)) {
-        visited.add(edge.vertex);
-        queue.unshift(edge.vertex);
-      }
-    }
-  }
-
-  return visited;
-}
-
-
-function depthFirst(root, cb) {
-
-  const stack = [root];
-  const visited = new Set();
-  let current = null;
-
-  while(stack.length) {
-    current = stack.pop();
-
-
-    if (cb) cb(current.value);
-
-    const neighbors = getNeighbors(current);
-    for (let edge of neighbors) {
-      if (!visited.has(edge.vertex)) {
-        visited.add(edge.vertex);
-        stack.push(edge.vertex);
-      }
-    }
-  }
-
-  return visited;
-}
 
 graph.depthFirst(A, console.log);
 console.log('*****************');
 graph.breadthFirst(A, console.log);
+
+module.exports = {Graph, Edge,Vertex };
