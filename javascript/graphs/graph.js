@@ -26,9 +26,9 @@ class Graph {
     return vertex;
   }
 
-  addDirectedEdge(startVertex, endVertex) {
+  addDirectedEdge(startVertex, endVertex, weight) {
     const neighbors = this.adjacencyList.get(startVertex);
-    neighbors.push(new Edge(endVertex));
+    neighbors.push(new Edge(endVertex, weight));
   }
 
   getNeighbors(vertex) {
