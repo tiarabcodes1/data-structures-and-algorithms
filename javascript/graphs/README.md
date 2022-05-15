@@ -17,6 +17,9 @@ The efficiency for the Graph has an O(n) depending on its vertex's root. The spa
 - BusinessTrip()
 ![BusinessTripUML](./assets/BUSINESSTRIP-UML.png)
 
+- DepthFirst()
+![DEPTHFIRST-UML](./assets/DEPTHFIRST-UML.png)
+
 ## API
 
 | Method    | Argument | Graph                                                                                                 |
@@ -27,7 +30,8 @@ The efficiency for the Graph has an O(n) depending on its vertex's root. The spa
 | getNeighbors() | N/A  | Returns a collection of edges connected to the given node|
 | size() | N/A | Returns the total number of nodes in the graph |
 | breadFirst() | N/A | Returns a collection of nodes in the order they were visited. |
-| breadFirst() | graph, array of city names | Returns Return: cost or null; Determine whether the trip is possible with direct flights, and how much it would cost. |
+| BusinessTrip() | graph, array of city names | Returns Return: cost or null; Determine whether the trip is possible with direct flights, and how much it would cost. |
+| breadFirst() | Vertex | Returns a collection of nodes in their pre-order depth-first traversal order. |
 
 
 
